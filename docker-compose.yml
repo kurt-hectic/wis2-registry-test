@@ -34,13 +34,12 @@ services:
        - ./CA/wisca.crt:/etc/mosquitto/wisca.crt
        
       ports:
-       - 1883:1883
+       - 8883:8883
        - 9001:9001
       
       networks:
         wis2.wmo.int:    
 
-      
     python:
       build: .
       
@@ -55,9 +54,25 @@ services:
        - ./CA/gb_ma.key:/usr/src/app/gb_ma.key
        - ./CA/gb_fr_fake.crt:/usr/src/app/gb_fr_fake.crt
        - ./CA/wisca.crt:/usr/src/app/wisca.crt
-       
-             
+                                  
       command: bash -c "sleep 10; pytest"
+      
+      networks:
+        wis2.wmo.int:    
+
+    python-publisher:
+      build: .
+      
+      stdin_open: true # docker run -i
+      tty: true
+      
+      volumes:
+       - ./keep_publishing.py:/usr/src/app/keep_publishing.py
+       - ./CA/node_ch.crt:/usr/src/app/node_ch.crt
+       - ./CA/node_ch.key:/usr/src/app/node_ch.key
+       - ./CA/wisca.crt:/usr/src/app/wisca.crt       
+             
+      command: bash -c "python keep_publishing.py"
       
       networks:
         wis2.wmo.int:    

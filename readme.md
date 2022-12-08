@@ -5,10 +5,15 @@ To run, checkout the repository, change into the directory and type ```docker-co
 ## approach
 The environment sets up a mosquitto, nginx and python container and configures them to use mqtts and https. The nginx container proxies the mosquitto port so that the same hostname can be used for mqtt and http connection, but does not terminate the SSL connection. The ngnix and mosquitto containers represent a node, whereas the python container represents a Global Broker (GB) making a connection to the node. The GB attempts to connect using different certificates and the node only let's the GB connect when the right certificate is supplied.
 
-The tests that are implememented are:
+The tests that are implememented for ngnix are:
  1. GB certificate has been signed by CA and has the right subject name => access
  2. GB certificate has been signed by CA, but does not have the right subject name => no access
  3. GB certificate has been signed by non trusted CA but has the right subject name => no access
+
+The tests that are implememented for mosquitto are:
+ 4. GB certificate has been signed by CA and has the right subject name => can read from topic
+ 5. GB certificate has been signed by CA, but does not have the right subject name => cannot read from topic
+ 6. GB certificate has been signed by non trusted CA but has the right subject name => cannot read from topic
 
 The testing is implemented as a pytest file which is run in the python container.
 

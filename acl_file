@@ -3,3 +3,6 @@ topic readwrite #
  
 user gb-fr.wis2.wmo.int
 topic readwrite test
+
+user node-ch.wis2.wmo.int
+topic readwrite test
