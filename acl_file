@@ -1,0 +1,5 @@
+user admin
+topic readwrite #
+ 
+user gb-fr.wis2.wmo.int
+topic readwrite test

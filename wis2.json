@@ -1,0 +1,50 @@
+{
+	
+	"infrastructure_nodes" : [
+	
+		{
+			"country_code": "FR",
+			"type": "GB",
+			"hostname": "gb-fr.wis2.wmo.int",
+			"subject": "C=FR/O=Meteo France/SN=gb-fr.wis2.wmo.int"
+		},
+		{
+			"country_code": "DE",
+			"type": "GC",
+			"hostname": "gc-de.wis2.wmo.int",
+			"subject": "C=DE/O=Deutscher Wetterdienst/SN=gc-de.wis2.wmo.int"
+		}
+	
+	],
+	
+	"nodes": [
+		{
+			"country_code": "CH",
+			"type": "node",
+			"hostname": "ch.wis2.wmo.int",
+			"subject": "C=CH/O=Meteo Suisse/SN=ch.wis2.wmo.int",
+			"topic" : "origin/a/wis2/che"
+		},
+		{
+			"country_code": "CH",
+			"type": "node",
+			"hostname": "ch2.wis2.wmo.int",
+			"subject": "C=CH/O=Meteo Suisse/OU=GAW/SN=ch2.wis2.wmo.int",
+			"topic" : "origin/a/wis2/che"
+		},
+		{
+			"country_code": "MA",
+			"type": "node",
+			"hostname": "ma.wis2.wmo.int",
+			"subject": "C=MA/O=Direction Natinale de la Meteorologie/SN=ma.wis2.wmo.int",
+			"topic" : "origin/a/wis2/mar"
+		},
+		{
+			"country_code": "FR",
+			"type": "node",
+			"hostname": "fr.wis2.wmo.int",
+			"subject": "C=FR/O=Meteo France/SN=fr.wis2.wmo.int",
+			"topic" : "origin/a/wis2/fra"
+		}
+	]
+}
